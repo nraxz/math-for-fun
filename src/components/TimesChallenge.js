@@ -38,18 +38,13 @@ const TimesChallenge = () => {
     const y = 1 + Math.round(9 * Math.random());
     setCorrectAnswer(x * y);
     setQuestion(`${x} x ${y}`);
-    const answers = [correctAnswer];
-    for (let i = 1; i <= 4; i++) {
-      let wrongAnswer;
-      do {
-        wrongAnswer = (1 + Math.round(9 * Math.random())) * (1 + Math.round(9 * Math.random()));
-      } while (answers.includes(wrongAnswer));
-      answers.push(wrongAnswer);
-    }
-    answers.sort(() => Math.random() - 0.5);
-    setChoices(answers);
+   
+    const choices = generateChoices(x * y);
+    console.log(choices);
+    setChoices(choices);
   };
 
+  
   const checkAnswer = (selectedAnswer) => {
     if (selectedAnswer === correctAnswer) {
       setScore(prevScore => prevScore + 1);
@@ -57,23 +52,67 @@ const TimesChallenge = () => {
     generateQuestion();
   };
 
+  function generateChoices(correctAnswer) {
+    // Generate 3 random wrong answers that are unique and different from the correct answer
+    const wrongAnswers = new Set();
+    while (wrongAnswers.size < 3) {
+      let wrongAnswer;
+      do {
+        wrongAnswer = Math.floor(Math.random() * 100) + 1; // Ensure it's within 1-100 range
+      } while (wrongAnswers.has(wrongAnswer) || wrongAnswer === correctAnswer);
+      wrongAnswers.add(wrongAnswer);
+    }
+  
+    // Combine the correct answer and wrong answers into an array
+    const options = [correctAnswer, ...wrongAnswers];
+  
+    // Shuffle the choices randomly using the Fisher-Yates algorithm for efficiency
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+  
+    // Return the shuffled array
+    return options;
+  }
+
+
   return (
-    <div>
-      <h1>Times Challenge</h1>
-      <div>Score: {score}</div>
-      <div>Time Remaining: {timeRemaining} sec</div>
-      {playing ? (
-        <div>
-          <div>Question: {question}</div>
-          <div>
-            {choices.map((choice, index) => (
-              <button key={index} onClick={() => checkAnswer(choice)}>{choice}</button>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <button onClick={startGame}>Start Game</button>
-      )}
+    <div className="container mt-5">
+         <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+            <a class="navbar-brand " href="/">Math For fun</a>
+        </nav>
+        <div class="card text-center"> 
+            <div class="card-header text-primary">
+                <h1>Times Challenge</h1>
+            </div>
+            <div class="card-body">
+                <div class="text-info">Time Remaining: {timeRemaining} sec</div>
+                <div class="text-success mt-3 mb-3"> Score:{score}</div>
+            </div>
+            <div class="card-body">
+                {playing ? (
+                    <div>
+                        <div class="text-success mt-3 mb-5"><h2>Question: {question}</h2></div>
+                        <div className="row">
+                            {choices.map((choice, index) => (
+                                 <div key={index} className="col-3 mt-5 mb-2">
+                                     <button class="btn btn-primary btn-lg w-100" onClick={() => checkAnswer(choice)}>{choice}</button>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="row">
+                
+                    </div>
+
+
+                </div>
+                ) : (
+                 <button class="btn btn-success" onClick={startGame}>Start Game</button>
+                )}
+            </div>
+      </div>
     </div>
   );
 };

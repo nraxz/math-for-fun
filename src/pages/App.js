@@ -5,6 +5,7 @@ import SummationChallenge from '../components/SummationChallenge';
 import ArithmeticChallenge from '../components/ArithmeticChallenge';
 import TimesChallenge from '../components/TimesChallenge';
 
+
 const App = () => {
   return (
     <Router>
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/summation" element={<SummationChallenge />} />
         <Route path="/arithmetic" element={<ArithmeticChallenge />} />
         <Route path="/times" element={<TimesChallenge />} />
+        
       </Routes>
     </Router>
   );

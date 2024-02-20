@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 function SummationChallenge() {
     const [score, setScore] = useState(0);
+    const [counter, setCounter] = useState(0);
     const [problem, setProblem] = useState(null);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [correctAnswer, setCorrectAnswer] = useState(null);
 
     useEffect(() => {
+        document.title = 'Summation Challenge';
         generateNewProblem();
     }, []);
 
@@ -43,18 +45,18 @@ function SummationChallenge() {
         }
     };
 
-    const generateNewProblem = () => {
+    const generateNewProblem = () => {        
         const newProblem = generateMathProblem();
         setProblem(newProblem);
     };
 
     const checkAnswer = (selected) => {
         setSelectedAnswer(selected);
-
+        setCounter(counter + 1);
         if (selected === correctAnswer) {
             setScore(score + 1);
         } else {
-            setScore(score - 1);
+            //setScore(score - 1);
         }
 
         setTimeout(() => {
@@ -65,34 +67,40 @@ function SummationChallenge() {
 
     return (
         <div className="container mt-5">
-            <div className={`alert alert-dismissible fade ${selectedAnswer ? 'show' : ''}`} role="alert" style={{ display: selectedAnswer ? 'block' : 'none' }}>
-                <strong>{selectedAnswer === correctAnswer ? 'Correct!' : 'Incorrect!'}</strong>
-                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+             <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+                <a class="navbar-brand " href="/">Math For fun</a>
+            </nav>
+        <div className={`alert alert-dismissible fade ${selectedAnswer ? 'show' : ''}`} role="alert" style={{ display: selectedAnswer ? 'block' : 'none' }}>
+            <strong>{selectedAnswer === correctAnswer ? 'Correct!' : 'Incorrect!'}</strong>
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div className='card text-center'>
+        <div class="card-header">
+            <h1 class="text text-primary">Summation Challenge</h1>
+        </div>
+            <div className="card-body">
+                <h5 className="card-title text-success">Score: {score} / {counter}</h5>
             </div>
-            <div className="card">
-                <div className="card-body">
-                    <h2 className="card-title">Score: {score}</h2>
-                </div>
-                <div className="card-body">
-                    <h1 className="card-text">{problem ? problem.problem : 'Loading...'}</h1>
-                </div>
-                <div className="card-body">
-                    <div className="row">
-                        {(problem?.answers || []).map((answer, index) => (
-                            <div key={index} className="col-4 mb-2">
-                                <button
-                                    className="btn btn-primary btn-lg w-100"
-                                    onClick={() => checkAnswer(answer)}
-                                    disabled={selectedAnswer !== null}
-                                >
-                                    {answer}
-                                </button>
-                            </div>
-                        ))}
-                    </div>
+            <div className="card-body mb-3">
+                <h1 className="card-text text-info">{problem ? problem.problem : 'Loading...'}</h1>
+            </div>
+            <div className="card-body mt-5">
+                <div className="row">
+                    {(problem?.answers || []).map((answer, index) => (
+                        <div key={index} className="col-4 mb-2">
+                            <button
+                                className="btn btn-primary btn-lg w-100"
+                                onClick={() => checkAnswer(answer)}
+                                disabled={selectedAnswer !== null}
+                            >
+                                {answer}
+                            </button>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
+    </div>
     );
 }
 

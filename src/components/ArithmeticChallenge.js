@@ -8,6 +8,7 @@ const ArithmeticChallenge = () => {
   const [trueFalse, setTrueFalse] = useState();
   const [correctAnswer, setCorrectAnswer] = useState(0);
   const [score, setScore] = useState(0);
+  const [counter, setCounter] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [challengeValue, setChallengeValue] = useState(null);
 
@@ -72,7 +73,7 @@ const ArithmeticChallenge = () => {
     setCorrectAnswer(result);
     setX(newX);  
     const random = Math.round(Math.random());
-    console.log("Random: ", random);
+    
     if(random == 1){
       setTrueFalse(random);
       setChallengeValue(result);      
@@ -83,15 +84,14 @@ const ArithmeticChallenge = () => {
 
 
   };
-  console.log("random:", trueFalse, "value: ", challengeValue);
-  console.log("num1:", num1, "num2: ", num2, "Correct Answer:", correctAnswer);
+ 
 
   
   
  
   const checkAnswer = (selected) => {
    // setSelectedAnswer(selected);
-
+   setCounter(counter + 1);
     if (trueFalse === selected) {
      
         setScore(score + 1);
@@ -110,24 +110,36 @@ const ArithmeticChallenge = () => {
   };
 
   return (
-    <div>
-      <h1>Arithmetic Challenge</h1>
-      <h2>{num1} {sign} {num2} = {challengeValue}</h2>
-      <div>
-        <button onClick={() => checkAnswer(1)} disabled={selectedAnswer !== null}>
-          True
-        </button>
-        <button onClick={() => checkAnswer(0)} disabled={selectedAnswer !== null}>
-          False
-        </button>
+    
+    <div className="container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+      <a class="navbar-brand " href="/">Math For fun</a>
+    </nav>
+    <div className='card text-center'>
+      <div class="card-header text-primary">
+        <h1 >Arithmetic Challenge</h1>
       </div>
-      <h3>Score: {score}</h3>
-      <h3>CA: {correctAnswer} vs {x}</h3>
+      <div class="card-body">
+        <h5 class="text-success mb-4">Score: {score} / {counter}</h5>
+        <h1 class="text-info mt-5 mb-5">{num1} {sign} {num2} = {challengeValue}</h1>
+      </div>
+      <div class="card-footer mt-5">
+      <div className="row">
+        <div className="col-6">
+                <button className="btn btn-success w-100" onClick={() => checkAnswer(1)} disabled={selectedAnswer !== null}>
+                    True
+                </button>
+            </div>
+            <div className="col-6">
+                <button className="btn btn-danger w-100" onClick={() => checkAnswer(0)} disabled={selectedAnswer !== null}>
+                    False
+                </button>
+            </div>
+        </div>
+      </div>
+    </div>    
     
-      <h3>X: {x}</h3>
-      <h3>T/F: {trueFalse}</h3>
-    
-    </div>
+</div>
   );
 };
 
