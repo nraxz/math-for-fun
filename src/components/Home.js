@@ -9,6 +9,7 @@ const Home = () => {
       <ul>
         <li><Link to="/summation">Summation Challenge</Link></li>
         <li><Link to="/arithmetic">Arithmetic Challenge</Link></li>
+        <li><Link to="/times">Times Challenge</Link></li>
       </ul>
     </div>
   );
