@@ -74,7 +74,7 @@ function SummationChallenge() {
             <strong>{selectedAnswer === correctAnswer ? 'Correct!' : 'Incorrect!'}</strong>
             <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div className='card text-center'>
+        <div className='card text-center mt-5'>
         <div class="card-header">
             <h1 class="text text-primary">Summation Challenge</h1>
         </div>

@@ -111,11 +111,11 @@ const ArithmeticChallenge = () => {
 
   return (
     
-    <div className="container mt-5">
-    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
-      <a class="navbar-brand " href="/">Math For fun</a>
-    </nav>
-    <div className='card text-center'>
+    <div class="container mt-5">
+      <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+        <a class="navbar-brand " href="/">Math For fun</a>
+      </nav>
+    <div className='card text-center mt-5'>
       <div class="card-header text-primary">
         <h1 >Arithmetic Challenge</h1>
       </div>

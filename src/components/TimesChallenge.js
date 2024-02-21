@@ -82,7 +82,7 @@ const TimesChallenge = () => {
          <nav class="navbar navbar-expand-lg navbar-primary bg-light">
             <a class="navbar-brand " href="/">Math For fun</a>
         </nav>
-        <div class="card text-center"> 
+        <div class="card text-center mt-5"> 
             <div class="card-header text-primary">
                 <h1>Times Challenge</h1>
             </div>
