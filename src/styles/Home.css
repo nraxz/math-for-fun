@@ -1,0 +1,21 @@
+.game-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+.card {
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-success {
+  transition: all 0.2s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+} 

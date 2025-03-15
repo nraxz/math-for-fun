@@ -1,0 +1,30 @@
+/* SweetAlert2 Custom Styles */
+.swal2-popup {
+  border-radius: 1rem !important;
+  font-family: inherit !important;
+}
+
+.swal2-toast {
+  padding: 0.75rem !important;
+  border-radius: 0.5rem !important;
+  animation: slideInRight 0.3s ease-out !important;
+}
+
+.swal2-confirm.btn, 
+.swal2-cancel.btn {
+  margin: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} 

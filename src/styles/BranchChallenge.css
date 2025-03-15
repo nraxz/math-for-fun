@@ -1,0 +1,111 @@
+.branch-challenge-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+}
+
+.branch-challenge-container canvas {
+  background: linear-gradient(to bottom, #f8f9fa, #fff);
+  max-width: 100%;
+  height: auto;
+  touch-action: none; /* Prevents unwanted touch behaviors on mobile */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.branch-challenge-container canvas:hover {
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 8px;
+  padding: 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.number-btn {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid #28a745;
+  background: white;
+  color: #28a745;
+  transition: all 0.2s ease;
+  min-width: 60px;
+  margin: 5px;
+}
+
+.number-btn:hover {
+  background: #28a745;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.canvas-container {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+  max-width: 700px; /* Limit maximum width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.options-container {
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.score-container, .challenge-container, .difficulty-container {
+  background: white !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.score-container:hover, .challenge-container:hover, .difficulty-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Animation for correct answers */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .options-container .btn {
+    min-width: 50px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .card-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .score-container h3, .challenge-container h3, .difficulty-container h3 {
+    font-size: 1.25rem;
+  }
+  
+  .canvas-container {
+    padding: 0.5rem;
+  }
+}
+
+.number-picker-modal .swal2-popup {
+  padding: 2rem;
+} 
