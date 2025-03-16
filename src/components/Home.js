@@ -10,6 +10,8 @@ import BranchChallenge from './BranchChallenge';
 import VisualMemory from './VisualMemory';
 import NumberMemory from './NumberMemory';
 import SmartChimpanzee from './SmartChimpanzee';
+import About from './About';
+import Leaderboard from './Leaderboard';
 
 const Home = () => {
   const scnum1 = Math.floor(Math.random() * 10) + 1;
@@ -31,7 +33,7 @@ const Home = () => {
         <meta name="twitter:card" content="math_for_fun" />
       </Helmet>
 
-      <Navbar bg="primary" variant="dark" expand="lg" className="rounded-bottom shadow-sm">
+      <Navbar bg="success" variant="dark" expand="lg" className="rounded-bottom shadow-sm">
         <Container>
           <Navbar.Brand href="/" className="fs-3">
             <i className="fas fa-calculator me-2"></i>
@@ -53,7 +55,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="display-6 mb-4 text-primary">
+          <h2 className="display-6 mb-4 text-success">
             <i className="fas fa-star me-2"></i>
             Math Games
           </h2>
@@ -70,7 +72,7 @@ const Home = () => {
                     </Card.Header>
                     <Card.Body className="d-flex flex-column">
                       <div className="text-center mb-3">
-                        <h3 className="display-6 text-primary">{scnum1} + {scnum2} = ?</h3>
+                        <h3 className="display-6 text-success">{scnum1} + {scnum2} = ?</h3>
                       </div>
                       <Card.Text className="text-muted flex-grow-1">
                         Practice addition with fun! Solve problems and earn points for each correct answer.
@@ -96,7 +98,7 @@ const Home = () => {
                     </Card.Header>
                     <Card.Body className="d-flex flex-column">
                       <div className="text-center mb-3">
-                        <h3 className="display-6 text-primary">{acnum1} {newSign} {acnum2} = ?</h3>
+                        <h3 className="display-6 text-success">{acnum1} {newSign} {acnum2} = ?</h3>
                       </div>
                       <Card.Text className="text-muted flex-grow-1">
                         Enhance arithmetic skills with interactive problems.
@@ -122,7 +124,7 @@ const Home = () => {
                     </Card.Header>
                     <Card.Body className="d-flex flex-column">
                       <div className="text-center mb-3">
-                        <h3 className="display-6 text-primary">{tcnum1} X {tcnum2} = ?</h3>
+                        <h3 className="display-6 text-success">{tcnum1} X {tcnum2} = ?</h3>
                       </div>
                       <Card.Text className="text-muted flex-grow-1">
                         Improve multiplication proficiency in a stimulating way.
@@ -169,7 +171,7 @@ const Home = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-5"
         >
-          <h2 className="display-6 mb-4 text-primary">
+          <h2 className="display-6 mb-4 text-success">
             <i className="fas fa-brain me-2"></i>
             Memory Games
           </h2>
@@ -186,7 +188,7 @@ const Home = () => {
                     </Card.Header>
                     <Card.Body className="d-flex flex-column">
                       <div className="text-center mb-3">
-                        <h3 className="display-6 text-primary">Visual Memory</h3>
+                        <h3 className="display-6 text-success">Visual Memory</h3>
                       </div>
                       <Card.Text className="text-muted flex-grow-1">
                         Follow and recall block patterns. Each level adds more blocks to memorize. How far can you go?
@@ -212,7 +214,7 @@ const Home = () => {
                     </Card.Header>
                     <Card.Body className="d-flex flex-column">
                       <div className="text-center mb-3">
-                        <h3 className="display-6 text-primary">Number Memory</h3>
+                        <h3 className="display-6 text-success">Number Memory</h3>
                       </div>
                       <Card.Text className="text-muted flex-grow-1">
                         Test and enhance your memory recall by memorizing and regenerating number sequences. Start with a basic sequence and progress to more challenging ones.
@@ -238,7 +240,7 @@ const Home = () => {
                     </Card.Header>
                     <Card.Body className="d-flex flex-column">
                       <div className="text-center mb-3">
-                        <h3 className="display-6 text-primary">Smart Chimpanzee</h3>
+                        <h3 className="display-6 text-success">Smart Chimpanzee</h3>
                       </div>
                       <Card.Text className="text-muted flex-grow-1">
                         As you progress, memorize and follow the sequence of numbers within blocks, with the challenge intensifying as the number of blocks increases upon each correct sequence recall.
@@ -256,6 +258,10 @@ const Home = () => {
           </Row>
         </motion.div>
       </Container>
+      
+      <footer className="py-3 bg-dark text-center text-light mt-5">
+        <p className="mb-0">© Copyright Nareshshahi.com</p>
+      </footer>
     </div>
   );
 };

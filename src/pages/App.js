@@ -8,6 +8,9 @@ import BranchChallenge from '../components/BranchChallenge';
 import VisualMemory from '../components/VisualMemory';
 import NumberMemory from '../components/NumberMemory';
 import SmartChimpanzee from '../components/SmartChimpanzee';
+import About from '../components/About';
+import Leaderboard from '../components/Leaderboard';
+
 
 const App = () => {
   return (
@@ -21,6 +24,8 @@ const App = () => {
         <Route path="/visualmemory" element={<VisualMemory />} />
         <Route path="/memory" element={<NumberMemory />} />
         <Route path="/smarter-chimpanzee" element={<SmartChimpanzee />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
     </Router>
   );
