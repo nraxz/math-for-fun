@@ -136,6 +136,30 @@ const Home = () => {
                 </Link>
               </motion.div>
             </Col>
+            <Col xs={12} md={6} lg={4}>
+              <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }}>
+                <Link to="/branch" className="text-decoration-none">
+                  <Card className="mb-4">
+                    <Card.Header className="bg-warning text-dark">
+                      <strong>Branch Math</strong>
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Text className="text-muted flex-grow-1">
+                        <div className="text-center">
+                          <i className="fas fa-tree fs-1 text-success mb-3">Branch it</i>
+                        </div>
+                        Fill in the branches with numbers that add up to the target! A fun way to practice addition and strategic thinking.
+                      </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <button type="button" className="btn btn-success w-100">
+                        Play Now
+                      </button>
+                    </Card.Footer>
+                  </Card>
+                </Link>
+              </motion.div>
+            </Col>
           </Row>
         </motion.div>
 
@@ -228,28 +252,7 @@ const Home = () => {
                 </Link>
               </motion.div>
             </Col>
-            <Col xs={12} md={6} lg={4}>
-              <Link to="/branch" className="text-decoration-none">
-                <Card className="mb-4">
-                  <Card.Header className="text text-danger">
-                    <strong>Branch Math</strong>
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Text className="text text-info">
-                      <div className="text-center">
-                        <i className="fas fa-tree fs-1 text-success mb-3"></i>
-                      </div>
-                      Fill in the branches with numbers that add up to the target! A fun way to practice addition and strategic thinking.
-                    </Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <button type="button" className="btn btn-success float-end">
-                      Play Now
-                    </button>
-                  </Card.Footer>
-                </Card>
-              </Link>
-            </Col>
+            
           </Row>
         </motion.div>
       </Container>

@@ -150,11 +150,11 @@ const NumberMemory = () => {
         </div>
         <div className="number-pad-row">
           <button onClick={handleBackspace} className="func-btn">
-            <i className="fas fa-backspace"></i>
+            Back
           </button>
           <button onClick={() => handleNumberInput('0')}>0</button>
           <button onClick={handleSubmit} className="func-btn">
-            <i className="fas fa-check"></i>
+            OK
           </button>
         </div>
       </div>

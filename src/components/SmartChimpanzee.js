@@ -139,7 +139,7 @@ const SmartChimpanzee = () => {
           isShown: false
         }));
         setSquares(newSquares);
-      }, 2000);
+      }, 5000);
       
       return () => clearTimeout(timer);
     }
